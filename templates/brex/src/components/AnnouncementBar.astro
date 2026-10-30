@@ -1,0 +1,27 @@
+---
+interface Props {
+  message?: string;
+  linkLabel?: string;
+  linkHref?: string;
+}
+
+const {
+  message = "Brex is now available in the UK, EU, and Canada.",
+  linkLabel = "Learn more",
+  linkHref = "#contact",
+} = Astro.props;
+---
+
+<div class="bg-carbon">
+  <div
+    class="container-page flex items-center justify-center gap-3 py-2.5 text-center text-caption font-medium text-paper"
+  >
+    <span>{message}</span>
+    <a
+      href={linkHref}
+      class="text-ember transition-opacity hover:opacity-80"
+    >
+      {linkLabel} →
+    </a>
+  </div>
+</div>

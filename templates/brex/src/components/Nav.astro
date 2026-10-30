@@ -1,0 +1,140 @@
+---
+import Icon from "./Icon.astro";
+
+const links = [
+  { label: "Products", href: "#features" },
+  { label: "Solutions", href: "#features" },
+  { label: "Pricing", href: "#contact" },
+  { label: "Resources", href: "#resources" },
+];
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 bg-paper/90 backdrop-blur-md"
+>
+  <nav
+    aria-label="Primary"
+    class="container-page flex h-16 items-center justify-between gap-6"
+  >
+    <a
+      href="#main"
+      class="flex items-center gap-2 text-heading-sm font-semibold tracking-tight text-ink"
+      aria-label="Brex home"
+    >
+      brex
+    </a>
+
+    <ul class="hidden items-center gap-1 lg:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="group inline-flex items-center gap-1 rounded-[8px] px-3 py-2 text-body-sm font-medium text-ink transition-colors hover:text-ember"
+            >
+              {link.label}
+              <Icon
+                name="chevron-down"
+                size={14}
+                class="text-steel transition-transform duration-200 group-hover:translate-y-0.5"
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <a
+        href="#contact"
+        class="hidden text-body-sm font-medium text-ink transition-colors hover:text-ember sm:inline-flex"
+      >
+        Sign in
+      </a>
+      <a
+        href="#contact"
+        class="hidden items-center gap-1.5 text-body-sm font-medium text-ink transition-colors hover:text-ember md:inline-flex"
+      >
+        <Icon name="play" size={14} class="text-ember" />
+        See a demo
+      </a>
+      <a
+        href="#contact"
+        class="btn-ember inline-flex items-center"
+      >
+        Get started
+      </a>
+      <button
+        id="nav-toggle"
+        type="button"
+        class="grid h-9 w-9 place-items-center rounded-[8px] border border-mist text-ink lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation"
+      >
+        <span class="relative block h-3 w-4">
+          <span class="nav-bar absolute left-0 top-0 block h-px w-full bg-current transition-transform duration-200"></span>
+          <span class="nav-bar absolute left-0 top-1/2 block h-px w-full -translate-y-1/2 bg-current transition-opacity duration-200"></span>
+          <span class="nav-bar absolute bottom-0 left-0 block h-px w-full bg-current transition-transform duration-200"></span>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-nav" class="hidden border-t border-mist lg:hidden">
+    <ul class="container-page flex flex-col gap-1 py-4">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="flex items-center justify-between rounded-[8px] px-3 py-3 text-subheading font-medium text-ink transition-colors hover:bg-fog"
+            >
+              {link.label}
+              <Icon name="chevron-down" size={16} class="text-steel" />
+            </a>
+          </li>
+        ))
+      }
+      <li class="flex flex-col gap-2 pt-2">
+        <a
+          href="#contact"
+          class="rounded-[8px] border border-mist px-4 py-3 text-center text-body-sm font-medium text-ink"
+        >
+          Sign in
+        </a>
+        <a
+          href="#contact"
+          class="btn-ember text-center"
+        >
+          Get started
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("mobile-nav");
+
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    menu?.classList.toggle("hidden", open);
+    const bars = toggle.querySelectorAll<HTMLElement>(".nav-bar");
+    bars[0]?.classList.toggle("translate-y-1.5", !open);
+    bars[0]?.classList.toggle("rotate-45", !open);
+    bars[1]?.classList.toggle("opacity-0", !open);
+    bars[2]?.classList.toggle("-translate-y-1.5", !open);
+    bars[2]?.classList.toggle("-rotate-45", !open);
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      toggle?.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>

@@ -1,0 +1,102 @@
+---
+import Icon from "./Icon.astro";
+
+const articles = [
+  {
+    title: "How Ramp and Brex differ on rewards",
+    excerpt: "A side-by-side look at earn rates, redemption, and the fine print.",
+    tag: "Comparison",
+  },
+  {
+    title: "The 2026 state of corporate spend",
+    excerpt: "What 2,400 finance leaders told us about budgets and AI.",
+    tag: "Report",
+  },
+  {
+    title: "Closing the books 5x faster",
+    excerpt: "How modern teams automate month-end with Brex Empower.",
+    tag: "Guide",
+  },
+  {
+    title: "Why we built Brex travel",
+    excerpt: "Bringing policy, booking, and rewards into one flow.",
+    tag: "Product",
+  },
+  {
+    title: "FDIC insurance, explained",
+    excerpt: "How Brex Cash protects your deposits up to $6M.",
+    tag: "Banking",
+  },
+  {
+    title: "AI receipts and the future of expense",
+    excerpt: "From photo to GL code in under a second.",
+    tag: "AI",
+  },
+];
+---
+
+<section id="resources" class="bg-paper py-20 md:py-28">
+  <div class="container-page">
+    <div class="flex items-end justify-between gap-6">
+      <div class="max-w-[560px]">
+        <h2
+          class="text-[clamp(32px,4.6vw,48px)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink"
+        >
+          From the Brex blog
+        </h2>
+        <p class="mt-4 text-subheading text-graphite">
+          Insights, playbooks, and product updates for finance teams.
+        </p>
+      </div>
+
+      <div class="hidden items-center gap-2 md:flex">
+        <button
+          type="button"
+          aria-label="Scroll left"
+          class="grid h-10 w-10 place-items-center rounded-full border border-mist text-ink transition-colors hover:border-ink"
+          onclick="document.getElementById('article-strip').scrollBy({left:-360,behavior:'smooth'})"
+        >
+          <Icon name="arrow-right" size={16} class="rotate-180" />
+        </button>
+        <button
+          type="button"
+          aria-label="Scroll right"
+          class="grid h-10 w-10 place-items-center rounded-full border border-mist text-ink transition-colors hover:border-ink"
+          onclick="document.getElementById('article-strip').scrollBy({left:360,behavior:'smooth'})"
+        >
+          <Icon name="arrow-right" size={16} />
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="article-strip"
+      class="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    >
+      {
+        articles.map((article) => (
+          <a
+            href="#resources"
+            class="group w-[300px] shrink-0 snap-start"
+          >
+            <div class="aspect-[16/9] w-full overflow-hidden rounded-[12px] bg-fog">
+              <div
+                class="h-full w-full bg-gradient-to-br from-fog to-mist/40 transition-transform duration-300 group-hover:scale-[1.02]"
+                aria-hidden="true"
+              ></div>
+            </div>
+            <div class="mt-4">
+              <span class="text-caption font-medium uppercase tracking-[0.05em] text-ember">
+                {article.tag}
+              </span>
+              <h3 class="mt-2 text-heading-sm font-semibold leading-[1.25] tracking-[-0.01em] text-ink transition-colors group-hover:text-ember">
+                {article.title}
+              </h3>
+              <p class="mt-2 text-body-sm text-graphite">{article.excerpt}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

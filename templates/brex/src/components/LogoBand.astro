@@ -1,0 +1,39 @@
+---
+const logos = [
+  "Ramp",
+  "Notion",
+  "Linear",
+  "Stripe",
+  "Vercel",
+  "Figma",
+  "Airbnb",
+  "DoorDash",
+  "Loom",
+  "Plaid",
+  "Scale",
+  "Retool",
+];
+---
+
+<section id="customers" class="bg-fog py-20 md:py-24">
+  <div class="container-page">
+    <h2
+      class="text-center text-[clamp(28px,3.6vw,36px)] font-semibold tracking-[-0.02em] text-ink"
+    >
+      Trusted by 35,000+ top companies
+    </h2>
+
+    <ul
+      class="reveal-init mt-12 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+      style="--reveal-delay: 80ms"
+    >
+      {
+        logos.map((name) => (
+          <li class="flex h-10 items-center justify-center text-subheading font-semibold tracking-[-0.02em] text-steel">
+            {name}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

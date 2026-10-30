@@ -1,0 +1,121 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<section class="bg-paper">
+  <div class="container-page pt-16 pb-20 md:pt-24 md:pb-28">
+    <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-6">
+        <h1
+          class="text-[clamp(44px,6.4vw,72px)] font-semibold leading-[1] tracking-[-0.03em] text-ink"
+        >
+          The financial stack for growing companies
+        </h1>
+
+        <p
+          class="mt-6 max-w-[46ch] text-subheading font-normal text-graphite"
+        >
+          Brex gives finance teams corporate cards, expense management, travel,
+          bill pay, and banking — in one platform built for how companies
+          actually spend.
+        </p>
+
+        <form
+          class="mt-8 flex max-w-[460px] flex-col gap-3 sm:flex-row sm:items-stretch"
+          onsubmit="event.preventDefault()"
+        >
+          <label class="sr-only" for="hero-email">Work email</label>
+          <input
+            id="hero-email"
+            type="email"
+            placeholder="name@company.com"
+            class="h-12 flex-1 rounded-[12px] border border-mist bg-paper px-4 text-body text-ink placeholder:text-steel focus:border-ink focus:outline-none"
+          />
+          <button type="submit" class="btn-ember h-12 whitespace-nowrap">
+            Get started
+          </button>
+        </form>
+
+        <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-body-sm text-graphite">
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 font-medium text-ink transition-colors hover:text-ember"
+          >
+            <Icon name="play" size={14} class="text-ember" />
+            See Brex in action
+          </a>
+          <span class="text-steel">No personal guarantee required</span>
+        </div>
+      </div>
+
+      <div class="relative lg:col-span-6">
+        <div
+          class="relative mx-auto aspect-[4/3] w-full max-w-[560px] [perspective:1200px]"
+        >
+          <div
+            class="absolute inset-0 rounded-[16px] bg-fog"
+            aria-hidden="true"
+          >
+          </div>
+
+          <div
+            class="absolute left-6 top-8 w-[72%] rotate-[-6deg] rounded-[12px] border border-mist bg-paper p-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.18)]"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-caption font-medium text-steel">Corporate card</span>
+              <span class="text-caption font-semibold text-ink">•••• 4242</span>
+            </div>
+            <p class="mt-6 text-heading-sm font-semibold tracking-[-0.01em] text-ink">
+              $12,480.00
+            </p>
+            <p class="mt-1 text-caption text-graphite">Available balance</p>
+            <div class="mt-5 h-1.5 w-full rounded-full bg-fog">
+              <div class="h-1.5 w-2/3 rounded-full bg-ember"></div>
+            </div>
+          </div>
+
+          <div
+            class="absolute right-4 top-24 w-[62%] rotate-[4deg] rounded-[12px] border border-mist bg-paper p-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.18)]"
+          >
+            <div class="flex items-center gap-2">
+              <span class="grid h-8 w-8 place-items-center rounded-[8px] bg-fog text-ink">
+                <Icon name="receipt" size={16} />
+              </span>
+              <div>
+                <p class="text-body-sm font-medium text-ink">Expense report</p>
+                <p class="text-caption text-graphite">Approved · 2 min ago</p>
+              </div>
+            </div>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center justify-between text-body-sm">
+                <span class="text-graphite">Travel · SFO→NYC</span>
+                <span class="font-medium text-ink">$612.00</span>
+              </li>
+              <li class="flex items-center justify-between text-body-sm">
+                <span class="text-graphite">Software · Figma</span>
+                <span class="font-medium text-ink">$45.00</span>
+              </li>
+              <li class="flex items-center justify-between text-body-sm">
+                <span class="text-graphite">Meals · Team dinner</span>
+                <span class="font-medium text-ink">$287.50</span>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="absolute bottom-4 left-10 w-[58%] rotate-[-2deg] rounded-[12px] border border-mist bg-ink p-5 text-paper shadow-[0_24px_60px_-30px_rgba(0,0,0,0.3)]"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-caption font-medium text-mist">Brex Empower</span>
+              <span class="text-caption text-ember">Live</span>
+            </div>
+            <p class="mt-3 text-body font-semibold">Policy applied</p>
+            <p class="mt-1 text-caption text-mist">
+              Auto-approve under $500 · 14 rules active
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

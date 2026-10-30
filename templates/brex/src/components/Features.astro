@@ -1,0 +1,85 @@
+---
+import Icon from "./Icon.astro";
+
+const features = [
+  {
+    name: "Corporate cards",
+    body: "Unlimited cards with custom limits, rewards, and real-time controls for every employee.",
+    icon: "card",
+    active: true,
+  },
+  {
+    name: "Expense management",
+    body: "Automated receipts, approvals, and accounting sync — no more spreadsheets.",
+    icon: "receipt",
+  },
+  {
+    name: "Travel",
+    body: "Book flights, hotels, and cars with policy built in and rewards on every trip.",
+    icon: "plane",
+  },
+  {
+    name: "Bill pay",
+    body: "Pay any vendor by ACH or card, with approval workflows and full audit trails.",
+    icon: "chart",
+  },
+  {
+    name: "Banking and treasury",
+    body: "High-yield accounts, FDIC insurance, and cash management in one place.",
+    icon: "bank",
+  },
+];
+---
+
+<section id="features" class="bg-paper py-20 md:py-28">
+  <div class="container-page">
+    <div class="max-w-[640px]">
+      <h2
+        class="text-[clamp(32px,4.6vw,48px)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink"
+      >
+        The card is just the start
+      </h2>
+      <p class="mt-4 text-subheading text-graphite">
+        One platform for every way your company spends — with controls, rewards,
+        and accounting built in from day one.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((feature, index) => (
+          <article
+            class:list={[
+              "reveal-init card hairline transition-colors",
+              feature.active && "border-ember/40",
+            ]}
+            style={`--reveal-delay: ${index * 60}ms`}
+          >
+            <span
+              class:list={[
+                "grid h-10 w-10 place-items-center rounded-[8px]",
+                feature.active ? "bg-ember/10 text-ember" : "bg-fog text-ink",
+              ]}
+            >
+              <Icon name={feature.icon} size={20} />
+            </span>
+            <h3
+              class:list={[
+                "mt-6 text-heading-sm font-semibold tracking-[-0.01em]",
+                feature.active ? "text-ember" : "text-ink",
+              ]}
+            >
+              {feature.name}
+            </h3>
+            <p class="mt-2 text-body text-graphite">{feature.body}</p>
+
+            <div class="mt-6 flex items-center gap-2 text-body-sm font-medium text-ink">
+              <span>Learn more</span>
+              <Icon name="arrow-right" size={15} class="text-ember" />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

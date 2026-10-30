@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Brex — The financial stack for growing companies",
+  description = "Brex gives finance teams corporate cards, expense management, travel, bill pay, and banking in one platform.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    />
+  </head>
+  <body class="bg-paper text-ink antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[12px] focus:bg-ink focus:px-5 focus:py-3 focus:text-body-sm focus:font-medium focus:text-paper"
+    >
+      Skip to content
+    </a>
+    <slot />
+
+    <script>
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const items = document.querySelectorAll<HTMLElement>(".reveal-init");
+
+      if (prefersReduced || !("IntersectionObserver" in window)) {
+        items.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+        );
+
+        items.forEach((item) => observer.observe(item));
+      }
+    </script>
+  </body>
+</html>
