@@ -30,7 +30,7 @@ src/
   main.jsx                    # React root
   App.jsx                     # page composition
   styles/
-    tokens.css                # design tokens (from /Ramp/variables.css)
+    tokens.css                # design tokens (from WebConcept/Ramp/variables.css)
     global.css                # reset + base styles
   components/
     AnnouncementBar.jsx       + .module.css
@@ -53,7 +53,7 @@ from `styles/tokens.css`.
 ## Customizing
 
 - **Colors / type / spacing:** edit `src/styles/tokens.css`. Reference values
-  live in `/Ramp/DESIGN.md`.
+  live in `WebConcept/Ramp/DESIGN.md`.
 - **Section content:** each section is a component in `src/components/`; edit
   the data arrays at the top of the file (e.g. `PLANS`, `TESTIMONIALS`).
 - **Page order:** edit `src/App.jsx`.

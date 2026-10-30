@@ -1,6 +1,6 @@
 # Boost Insurance — Astro + Tailwind CSS v4
 
-A dark, abyssal insurtech landing page built from `Boostinsurance/` design tokens.
+A dark, abyssal insurtech landing page built from the `WebConcept/Boostinsurance/` design tokens.
 
 ## Stack
 
@@ -43,9 +43,9 @@ src/
 - `.glass` supplies the backdrop-blur surface used by the nav and floating cards.
 - `.topo` paints the faint topographic grid, masked to fade out down the page.
 - `.accent-underline` draws the 3px lime underline on one phrase per headline.
-- `--spacing-*` tokens from `Boostinsurance/theme.css` are intentionally **not** imported — they would override Tailwind's default spacing scale. Use Tailwind's scale or arbitrary values.
+- `--spacing-*` tokens from `WebConcept/Boostinsurance/theme.css` are intentionally **not** imported — they would override Tailwind's default spacing scale. Use Tailwind's scale or arbitrary values.
 - Motion is opt-out: `.reveal-init` / `.is-visible` collapse under `prefers-reduced-motion: reduce`.
 
 ## Design source
 
-`../Boostinsurance/DESIGN.md`, `theme.css`, `variables.css`, `tokens.json` — style reference only; the page content lives in `design.md`.
+`../../WebConcept/Boostinsurance/DESIGN.md`, `theme.css`, `variables.css`, `tokens.json` — style reference only; the page content lives in `design.md`.
