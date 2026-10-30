@@ -1,0 +1,28 @@
+---
+const stats = [
+  { value: "35,000+", label: "Companies on Brex" },
+  { value: "$10B+", label: "Spend managed" },
+  { value: "4.9/5", label: "Customer rating" },
+  { value: "99.99%", label: "Uptime" },
+];
+---
+
+<section class="bg-paper py-16 md:py-20">
+  <div class="container-page">
+    <div class="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-0">
+      {
+        stats.map((stat, index) => (
+          <div
+            class="reveal-init text-center md:border-l md:border-mist md:first:border-l-0"
+            style={`--reveal-delay: ${index * 80}ms`}
+          >
+            <p class="text-[clamp(36px,4.4vw,56px)] font-semibold tracking-[-0.03em] text-ink">
+              {stat.value}
+            </p>
+            <p class="mt-2 text-body-sm font-medium text-graphite">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

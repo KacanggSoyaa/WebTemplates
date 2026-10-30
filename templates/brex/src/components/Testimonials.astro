@@ -1,0 +1,59 @@
+---
+const testimonials = [
+  {
+    quote:
+      "Brex cut our month-end close from two weeks to two days. The accounting sync just works.",
+    name: "Sarah Chen",
+    role: "VP Finance, Notion",
+  },
+  {
+    quote:
+      "We issued 400 cards in an afternoon. Controls and limits are exactly what we needed.",
+    name: "Marcus Webb",
+    role: "Head of Ops, Linear",
+  },
+  {
+    quote:
+      "Travel booking with policy built in saved us 18% on flights in the first quarter.",
+    name: "Priya Raman",
+    role: "Finance Lead, Vercel",
+  },
+];
+---
+
+<section class="bg-fog py-20 md:py-28">
+  <div class="container-page">
+    <h2
+      class="text-[clamp(32px,4.6vw,48px)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink"
+    >
+      Loved by finance teams
+    </h2>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {
+        testimonials.map((t, index) => (
+          <figure
+            class="reveal-init card hairline bg-paper"
+            style={`--reveal-delay: ${index * 80}ms`}
+          >
+            <blockquote class="text-body text-graphite">
+              “{t.quote}”
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-fog text-body-sm font-semibold text-ink">
+                {t.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")}
+              </span>
+              <div>
+                <p class="text-body-sm font-semibold text-ink">{t.name}</p>
+                <p class="text-caption text-steel">{t.role}</p>
+              </div>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

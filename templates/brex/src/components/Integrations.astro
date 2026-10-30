@@ -1,0 +1,58 @@
+---
+import Icon from "./Icon.astro";
+
+const integrations = [
+  "QuickBooks",
+  "Xero",
+  "NetSuite",
+  "Sage",
+  "Slack",
+  "Zapier",
+  "Salesforce",
+  "HubSpot",
+  "Workday",
+  "Rippling",
+  "Gusto",
+  "BambooHR",
+];
+---
+
+<section class="bg-paper py-20 md:py-28">
+  <div class="container-page">
+    <div class="grid items-center gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <h2
+          class="text-[clamp(32px,4.6vw,48px)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink"
+        >
+          Works with your stack
+        </h2>
+        <p class="mt-4 text-subheading text-graphite">
+          Sync to your accounting, HR, and CRM tools in one click. No custom
+          integrations required.
+        </p>
+        <a
+          href="#contact"
+          class="mt-6 inline-flex items-center gap-2 text-body-sm font-medium text-ink transition-colors hover:text-ember"
+        >
+          See all 100+ integrations
+          <Icon name="arrow-right" size={15} class="text-ember" />
+        </a>
+      </div>
+
+      <div class="lg:col-span-7">
+        <ul class="grid grid-cols-3 gap-3 sm:grid-cols-4">
+          {
+            integrations.map((name, index) => (
+              <li
+                class="reveal-init flex h-14 items-center justify-center rounded-[12px] border border-mist bg-paper text-body-sm font-medium text-graphite transition-colors hover:border-ink hover:text-ink"
+                style={`--reveal-delay: ${index * 40}ms`}
+              >
+                {name}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
