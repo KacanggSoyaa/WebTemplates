@@ -1,0 +1,56 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<section id="contact" class="pb-24 pt-8 md:pb-32">
+  <div class="container-page">
+    <div
+      class="topo reveal-init relative overflow-hidden rounded-[30px] border border-pale-foam/12 bg-deep-kelp/50 px-6 py-16 text-center md:px-16 md:py-24"
+    >
+      <div
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-lime-voltage/60 to-transparent"
+        aria-hidden="true"
+      >
+      </div>
+
+      <p class="eyebrow justify-center">Get started</p>
+
+      <h2
+        class="mx-auto mt-6 max-w-[16ch] text-[clamp(38px,6vw,68px)] font-light leading-[0.98] tracking-[-0.04em]"
+      >
+        Ready to launch <span class="accent-underline">insurance?</span>
+      </h2>
+
+      <p
+        class="mx-auto mt-6 max-w-[46ch] text-subheading font-light text-sea-mist"
+      >
+        Talk to a program architect, or go straight to the sandbox and bind a test
+        policy in the next ten minutes.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+        <a
+          href="#contact"
+          class="gradient-cta group inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-body font-medium transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          Start building
+          <Icon
+            name="arrow-right"
+            size={18}
+            class="transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </a>
+        <a
+          href="#developers"
+          class="inline-flex items-center gap-2 rounded-full border border-pale-foam/25 px-7 py-4 text-body text-bone transition-colors hover:border-lime-voltage/60 hover:text-lime-voltage"
+        >
+          Talk to sales
+        </a>
+      </div>
+
+      <p class="mt-8 text-caption uppercase tracking-[0.35px] text-storm-glass">
+        No license required · Live in 6 weeks
+      </p>
+    </div>
+  </div>
+</section>

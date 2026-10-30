@@ -1,0 +1,78 @@
+.section {
+  padding-block: var(--spacing-16) var(--spacing-96);
+}
+
+.inner {
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+  padding-inline: var(--spacing-24);
+}
+
+.label {
+  text-align: center;
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+  color: var(--color-ash);
+  margin-bottom: var(--spacing-24);
+  font-feature-settings: "ss01" on;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: 1px solid var(--color-hairline);
+  border-left: 1px solid var(--color-hairline);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  padding: var(--spacing-16);
+  border-right: 1px solid var(--color-hairline);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.name {
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--color-ash);
+  font-feature-settings: "ss01" on;
+}
+
+.pullquote {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  background-color: var(--color-obsidian);
+}
+
+.pullquoteValue {
+  font-size: var(--text-heading);
+  line-height: 1.1;
+  color: var(--color-paper);
+  font-feature-settings: "ss01" on;
+}
+
+.pullquoteLabel {
+  font-size: var(--text-caption);
+  line-height: 1.9;
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+  color: var(--color-smoke);
+  font-feature-settings: "ss01" on;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .section { padding-bottom: var(--spacing-64); }
+  .grid    { grid-template-columns: repeat(2, 1fr); }
+  .pullquote { grid-column: span 2; }
+}

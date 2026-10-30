@@ -1,0 +1,92 @@
+---
+import Icon from "./Icon.astro";
+
+const resources = [
+  {
+    title: "Documentation",
+    description:
+      "Reference, guides, and typed SDKs for every product and endpoint.",
+    meta: "Docs",
+    href: "#resources",
+    icon: "book",
+  },
+  {
+    title: "The Boost blog",
+    description:
+      "How modern platforms turn coverage into retention, revenue, and trust.",
+    meta: "Writing",
+    href: "#resources",
+    icon: "chart",
+  },
+  {
+    title: "Help center",
+    description:
+      "Answers on programs, pricing, filings, and claims for operators.",
+    meta: "Support",
+    href: "#resources",
+    icon: "message",
+  },
+];
+---
+
+<section id="resources" class="relative py-24 md:py-32">
+  <div class="container-page">
+    <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <p class="eyebrow reveal-init">Resources</p>
+        <h2
+          class="reveal-init mt-5 max-w-[20ch] text-[clamp(34px,5.2vw,56px)] font-light leading-[1.02] tracking-[-0.035em]"
+          style="--reveal-delay: 80ms"
+        >
+          Everything you need to <span class="accent-underline">ship.</span>
+        </h2>
+      </div>
+      <p
+        class="reveal-init max-w-[38ch] text-body text-storm-glass lg:col-span-5 lg:justify-self-end"
+        style="--reveal-delay: 140ms"
+      >
+        Written for the people who actually build and run programs — engineers,
+        product leads, and ops teams.
+      </p>
+    </div>
+
+    <ul class="mt-14 border-t border-pale-foam/12">
+      {
+        resources.map((resource, index) => (
+          <li class="reveal-init" style={`--reveal-delay: ${120 + index * 80}ms`}>
+            <a
+              href={resource.href}
+              class="group grid grid-cols-[auto_1fr_auto] items-center gap-x-5 gap-y-2 border-b border-pale-foam/12 py-8 transition-colors hover:border-lime-voltage/40 md:grid-cols-[auto_1.1fr_1fr_auto] md:gap-x-10"
+            >
+              <span class="text-caption tabular-nums tracking-[0.35px] text-storm-glass">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span class="flex items-center gap-3">
+                <span class="grid h-9 w-9 place-items-center rounded-[10px] border border-pale-foam/15 text-sea-mist transition-colors group-hover:border-lime-voltage/40 group-hover:text-lime-voltage">
+                  <Icon name={resource.icon} size={16} />
+                </span>
+                <span class="text-heading-sm font-normal text-bone transition-colors group-hover:text-lime-voltage md:text-heading">
+                  {resource.title}
+                </span>
+              </span>
+
+              <span class="col-span-3 text-body-sm text-storm-glass md:col-span-1 md:col-start-3">
+                {resource.description}
+              </span>
+
+              <span class="col-start-3 row-start-1 flex items-center gap-3 md:col-start-4 md:row-start-auto">
+                <span class="hidden text-caption uppercase tracking-[0.35px] text-storm-glass sm:inline">
+                  {resource.meta}
+                </span>
+                <span class="grid h-10 w-10 place-items-center rounded-full border border-pale-foam/20 text-sea-mist transition-all duration-200 group-hover:border-lime-voltage group-hover:bg-lime-voltage group-hover:text-voltage-dark">
+                  <Icon name="arrow-up-right" size={16} />
+                </span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

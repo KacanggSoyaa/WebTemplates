@@ -1,0 +1,143 @@
+---
+import Icon from "./Icon.astro";
+
+const links = [
+  { label: "Customers", href: "#customers" },
+  { label: "Products", href: "#products" },
+  { label: "Developers", href: "#developers" },
+  { label: "Solutions", href: "#solutions" },
+  
+  
+  { label: "Resources", href: "#resources" },
+];
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 border-b border-pale-foam/10 bg-abyss-teal/70 backdrop-blur-xl"
+>
+  <nav
+    aria-label="Primary"
+    class="container-page flex h-20 items-center justify-between gap-6"
+  >
+    <a
+      href="#main"
+      class="flex items-center gap-2.5 text-heading-sm font-medium tracking-tight"
+      aria-label="Boost home"
+    >
+      <span
+        class="grid h-9 w-9 place-items-center rounded-[10px] bg-deep-kelp text-lime-voltage ring-1 ring-pale-foam/15"
+      >
+        <Icon name="layers" size={20} />
+      </span>
+      <span class="text-bone">boost</span>
+    </a>
+
+    <ul class="hidden items-center gap-1 lg:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="group inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-body-sm text-sea-mist transition-colors hover:text-bone"
+            >
+              {link.label}
+              <Icon
+                name="chevron-down"
+                size={14}
+                class="text-storm-glass transition-transform duration-200 group-hover:translate-y-0.5 group-hover:text-lime-voltage"
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="#contact"
+        class="hidden rounded-full border border-pale-foam/25 px-5 py-2.5 text-body-sm font-medium text-bone transition-colors hover:border-lime-voltage/60 hover:text-lime-voltage sm:inline-flex"
+      >
+        Contact Us
+      </a>
+      <button
+        id="nav-toggle"
+        type="button"
+        class="grid h-10 w-10 place-items-center rounded-full border border-pale-foam/20 text-bone lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation"
+      >
+        <span class="relative block h-3 w-4">
+          <span
+            class="nav-bar absolute left-0 top-0 block h-px w-full bg-current transition-transform duration-200"
+          ></span>
+          <span
+            class="nav-bar absolute left-0 top-1/2 block h-px w-full -translate-y-1/2 bg-current transition-opacity duration-200"
+          ></span>
+          <span
+            class="nav-bar absolute bottom-0 left-0 block h-px w-full bg-current transition-transform duration-200"
+          ></span>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-nav" class="hidden border-t border-pale-foam/10 lg:hidden">
+    <ul class="container-page flex flex-col gap-1 py-4">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="flex items-center justify-between rounded-lg px-3 py-3 text-subheading text-sea-mist transition-colors hover:bg-deep-kelp/60 hover:text-bone"
+            >
+              {link.label}
+              <Icon name="chevron-down" size={16} class="text-storm-glass" />
+            </a>
+          </li>
+        ))
+      }
+      <li class="pt-2">
+        <a
+          href="#contact"
+          class="flex items-center justify-center rounded-full border border-pale-foam/25 px-5 py-3 text-body-sm font-medium text-bone"
+        >
+          Contact Us
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("mobile-nav");
+  const header = document.getElementById("site-header");
+
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    menu?.classList.toggle("hidden", open);
+    toggle.classList.toggle("text-lime-voltage", !open);
+    const bars = toggle.querySelectorAll<HTMLElement>(".nav-bar");
+    bars[0]?.classList.toggle("translate-y-1.5", !open);
+    bars[0]?.classList.toggle("rotate-45", !open);
+    bars[1]?.classList.toggle("opacity-0", !open);
+    bars[2]?.classList.toggle("-translate-y-1.5", !open);
+    bars[2]?.classList.toggle("-rotate-45", !open);
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      toggle?.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  const onScroll = () => {
+    header?.classList.toggle("shadow-[0_20px_60px_-40px_rgba(0,0,0,0.9)]", window.scrollY > 8);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+</script>

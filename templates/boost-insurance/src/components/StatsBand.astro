@@ -1,0 +1,60 @@
+---
+import Icon from "./Icon.astro";
+
+const partners = [
+  ["Meridian", "font-medium tracking-tight"],
+  ["Northwind", "font-light uppercase tracking-[0.18em]"],
+  ["Arcadia", "font-medium italic tracking-tight"],
+  ["Ledgerly", "font-light tracking-tight"],
+  ["Payline", "font-medium uppercase tracking-[0.12em]"],
+  ["Solstice", "font-light italic tracking-tight"],
+  ["Harbor", "font-medium tracking-[0.06em]"],
+  ["Kite", "font-light uppercase tracking-[0.22em]"],
+  ["Vantage", "font-medium tracking-tight"],
+  ["Nimbus", "font-light tracking-[0.04em]"],
+];
+---
+
+<section id="customers" class="py-24 md:py-28">
+  <div class="container-page">
+    <div class="reveal-init grid gap-10 lg:grid-cols-12 lg:items-end">
+      <p
+        class="text-[clamp(26px,3.4vw,40px)] font-light leading-[1.2] tracking-[-0.02em] text-sea-mist lg:col-span-8"
+      >
+        <span class="text-bone">$100+ billion</span> of protection written through
+        Boost programs — for the platforms people already trust with their money,
+        their homes, and their businesses.
+      </p>
+      <a
+        href="#contact"
+        class="group inline-flex items-center gap-2 self-start text-body-sm text-sea-mist transition-colors hover:text-bone lg:col-span-4 lg:justify-self-end"
+      >
+        Read customer stories
+        <Icon name="arrow-up-right" size={15} />
+      </a>
+    </div>
+
+    <div class="mt-14">
+      <div class="gradient-hairline"></div>
+      <ul
+        class="reveal-init mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5"
+        style="--reveal-delay: 120ms"
+      >
+        {
+          partners.map(([name, weight], index) => (
+            <li
+              class:list={[
+                "flex h-10 items-center text-subheading text-pale-foam transition-colors duration-300 hover:text-bone",
+                weight,
+              ]}
+              style={`opacity: ${0.34 + (index % 5) * 0.06}`}
+            >
+              {name}
+            </li>
+          ))
+        }
+      </ul>
+      <div class="gradient-hairline mt-10"></div>
+    </div>
+  </div>
+</section>

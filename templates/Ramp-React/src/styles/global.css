@@ -1,0 +1,51 @@
+/* ============================================================
+   Global Reset & Base
+   ============================================================ */
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Keep anchor targets clear of the sticky navbar */
+section[id] { scroll-margin-top: 88px; }
+
+body {
+  font-family: var(--font-lausanne);
+  font-weight: var(--font-weight-regular);
+  font-feature-settings: "ss01" on;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-ink);
+  background-color: var(--surface-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+img { display: block; max-width: 100%; }
+
+button {
+  font-family: var(--font-lausanne);
+  font-weight: var(--font-weight-regular);
+  font-feature-settings: "ss01" on;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
